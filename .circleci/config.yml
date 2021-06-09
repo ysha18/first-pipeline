@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Print my name
           command: |
-            echo << udacity >>
+            echo $udacity
 workflows:
   welcome:
     jobs:
