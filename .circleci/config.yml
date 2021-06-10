@@ -7,9 +7,9 @@ jobs:
       - run:
           name: print hello world to file
           command: |
-            sudo mkdir target
-            sudo cd target
-            sudo echo 'Hello World' > output.txt
+            mkdir target
+            cd target
+            echo 'Hello World' > output.txt
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
