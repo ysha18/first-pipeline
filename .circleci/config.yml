@@ -10,8 +10,9 @@ jobs:
             sudo mkdir target
             sudo cd target
             sudo echo 'Hello World' > output.txt
-      - persist_to_workspace: save file to workspace
-          root: /tmp/workspace
+      - persist_to_workspace:
+          root: 
+            /tmp/workspace
           paths:
             - target/output.txt
   print_output_file:
