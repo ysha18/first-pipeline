@@ -11,8 +11,7 @@ jobs:
             sudo cd target
             sudo echo 'Hello World' > output.txt
       - persist_to_workspace:
-          root: 
-            /tmp/workspace
+          root: /tmp/workspace
           paths:
             - target/output.txt
   print_output_file:
