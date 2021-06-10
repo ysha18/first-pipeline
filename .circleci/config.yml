@@ -1,33 +1,32 @@
 version: 2.1
 jobs:
-  print_hello:
+  save_hello_world_output:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - run:
-          name: Print hello to the console
+          name: print hello world to file
           command: |
-            echo 'Hello'
-  print_world:
+            sudo mkdir target
+            sudo cd target
+            sudo echo 'Hello World' > output.txt
+      - persist_to_workspace: save file to workspace
+          root: /tmp/workspace
+          paths:
+            - target/output.txt
+  print_output_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - attach_workspace:
+        at: /tmp/workspace
       - run:
-          name: Print world to the console
+          name: Print file contents to the console
           command: |
-            echo 'World'
-  print_udacity_name:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run:
-          name: Print my name
-          command: |
-            echo $udacity
+            cat output.txt
 workflows:
   welcome:
     jobs:
-      - print_hello
-      - print_world:
-          requires: [print_hello]
-      - print_udacity_name
+      - save_hello_world_output
+      - print_output_file:
+          requires: [save_hello_world_output]
