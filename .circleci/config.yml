@@ -1,5 +1,5 @@
 version: 2.1
-command:
+commands:
   print_pipeline_id:
     description: "Printing workflow Id"
     steps:
