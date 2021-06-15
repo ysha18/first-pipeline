@@ -5,14 +5,13 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: 
-        command: return 1
+      - run: return 1
       - run:
-        command: echo 'Hello World'
-        when: on_fail
+          command: echo 'Hello World'
+          when: on_fail
 
 workflows:
-    wf:
-      jobs:
-        - some_job_that_fails
+  wf:
+    jobs:
+      - some_job_that_fails
         
