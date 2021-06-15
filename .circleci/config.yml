@@ -6,8 +6,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: 
-           shell: /bin/bash
-           command: return 1
+           command: cd olalala/obv
       - run:
           command: echo 'Hello World'
           when: on_fail
