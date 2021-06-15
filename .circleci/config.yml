@@ -12,6 +12,5 @@ jobs:
       - print_pipeline_id
 
 workflows:
-  welcome:
     jobs:
       - printing_from_a_command
